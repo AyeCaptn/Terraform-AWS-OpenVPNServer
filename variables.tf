@@ -78,3 +78,4 @@ variable "subnetid" {
 variable "adminurl" {
   description = "OpenVPN Admin login"
 }
+
