@@ -52,12 +52,13 @@ resource "aws_security_group" "vpnsecuritygroup" {
 }
 
 resource "aws_instance" "openvpnserver" {
-  ami             = var.ami
-  instance_type   = var.instancetype
-  user_data       = data.template_file.userdata.rendered
-  key_name        = var.keyname
-  security_groups = [aws_security_group.vpnsecuritygroup.id]
-  subnet_id       = var.subnetid
+  ami                         = var.ami
+  instance_type               = var.instancetype
+  user_data                   = data.template_file.userdata.rendered
+  key_name                    = var.keyname
+  security_groups             = [aws_security_group.vpnsecuritygroup.id]
+  subnet_id                   = var.subnetid
+  associate_public_ip_address = true
 
   tags = {
     Owner = var.owner
