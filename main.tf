@@ -66,7 +66,7 @@ resource "aws_instance" "openvpnserver" {
 }
 
 data "template_file" "userdata" {
-  template = file("userdata.sh")
+  template = file("${path.module}/userdata.sh")
 
   vars = {
     key_country  = var.key_country
